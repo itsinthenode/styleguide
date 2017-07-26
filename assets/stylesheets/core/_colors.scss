@@ -121,6 +121,26 @@ $colors-all: map-merge($colors, map-merge($colors-old, $colors-old-compat));
   @return map-get($colors, $name);
 }
 
+// tint($color, $percentage)
+//
+// $color - color name
+// $percentage - how much of this color should be mixed with white
+//
+// Style guide: Colors.Functions.tint
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+// shade($color, $percentage)
+//
+// $color - color name
+// $percentage - how much of this color should be mixed with black
+//
+// Style guide: Colors.Functions.shade
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+
 // Deprecated
 @function nd-color($name) {
   @warn "'nd-color' is deprecated. Please use 'color' instead.";
