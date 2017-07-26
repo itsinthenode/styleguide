@@ -6,6 +6,7 @@ var kss         = require('kss');
 var sass        = require('gulp-sass');
 var sassLint    = require('gulp-sass-lint');
 var sourcemaps  = require('gulp-sourcemaps');
+var autoprefixer = require('gulp-autoprefixer');
 
 // Static Server + watching scss/html files
 gulp.task('serve', ['styleguide', 'sass'], function() {
@@ -26,6 +27,7 @@ gulp.task('sass', function() {
   .pipe(sass({
     includePaths: ['./node_modules/normalize.css/']
   }).on('error', sass.logError))
+  .pipe(autoprefixer())
   .pipe(sourcemaps.write('./'))
   .pipe(gulp.dest('./dist/'))
   .pipe(browserSync.stream());
@@ -33,9 +35,10 @@ gulp.task('sass', function() {
 
 gulp.task('styleguide', function(cb) {
   kss({
-    "css": ["../dist/stylesheets/styleguide.css", "stylesheets/styleguide.css"], // hack to deploy better
+    "css": ["../dist/stylesheets/examples.css", "stylesheets/styleguide.css"], // hack to deploy better
     "destination":  "styleguide",
     "source": ["assets"],
+    "template": ["custom-template"],
     "title": "Node Style Guide"
   }, cb);
 });

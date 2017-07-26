@@ -1,40 +1,22 @@
+$show-samples: false !default; // disable sample generation
 
 @import "normalize";
 
-// Core
-//
-// variable definitions, typography, colors
-//
-// weight: -1
-//
-// Style guide: Core
+@import "core/fonts";
 @import "core/breakpoints";
 @import "core/colors";
 @import "core/layout";
 @import "core/mobile";
 @import "core/typography";
 @import "core/variables";
+@import "core/icons";
 
-// Mixins
-//
-// Style guide: Mixins
-@import "mixins/form-element";
-@import "mixins/input-element";
-@import "mixins/input-placeholder";
-@import "mixins/input-underlined";
-
-// Base
-//
-// styles for basic html elements
-//
-// Style guide: Base
 @import "base/buttons";
 @import "base/inputs";
 @import "base/images";
 @import "base/links";
 @import "base/label";
 @import "base/lists";
-@import "base/selects";
 @import "base/text";
 
 // Modules
@@ -42,8 +24,6 @@
 // logical components that can consist of multiple tags
 //
 // Style guide: Modules
-@import "modules/button-group";
-@import "modules/flash-messages";
-@import "modules/phone-wrapper";
-@import "modules/profile-image";
-@import "modules/progress-indicator";
+@import "components/cards";
+@import "components/dropout";
+@import "components/tabbed-nav";

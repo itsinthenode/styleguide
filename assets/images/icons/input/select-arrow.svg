@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 17" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g transform="translate(-1221 -3269)">
+    <use xlink:href="#a" transform="translate(1222.52 3280.02)"/>
+    <use xlink:href="#a" transform="matrix(1 0 0 -1 1222.52 3274.98)"/>
+  </g>
+  <defs>
+    <path id="a" d="M4.02528 4.04819l-.7071.7071.7071.70711.70711-.70711-.70711-.7071zM-.707107.73001L3.31818 4.75529l1.41421-1.41421L.707107-.684203-.707107.73001zM4.73239 4.75529L8.78058.707107 7.36636-.707107 3.31818 3.34108l1.41421 1.41421z"/>
+  </defs>
+</svg>

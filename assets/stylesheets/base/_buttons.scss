@@ -1,119 +1,179 @@
 // Buttons
 //
-// Your standard button suitable for clicking.
-//
-// :hover    - Highlights when hovering.
-// :disabled - Greyed out when disabled
-// .active   - Highlights when active
-// .button--warn - red button
-// .button--info - blue button
-// .button--add - dashed ouline button with plus sign added before text
-// .button--text - text only button (DEPRECATED: use a link instead)
-// .button--text.button--muted - text only button, muted text color
+// .--primary-lime - Primary lime button styling
+// .--primary-blue - Primary royal blue button styling
+// .--secondary-metal - Secondary metal button styling
+// .--secondary-abort - Secondary abort button styling
 //
 // Markup:
-// <button class="{{modifier_class}}">Click Button</button>
-// <input type="button" class="{{modifier_class}}" value="Click Input Button">
-// <input type="submit" class="{{modifier_class}}" value="Click Input Submit">
-// <a href="#" class="button {{modifier_class}}">Click Link</a>
+// <button class="{{modifier_class}}">Click me</button>
+// <input type="button" class="{{modifier_class}}" value="Click me">
+// <input type="submit" class="{{modifier_class}}" value="Click me">
+// <a href="#" class="button {{modifier_class}}">Click me</a>
+// <button class="--icon {{modifier_class}}">
+//   <svg width="28" height="28" class="icon" viewBox="0 0 28 28">
+//     <use xlink:href="#set1-activity" />
+//   </svg>
+//   Click me
+// </button>
+// <button class="--icon-only {{modifier_class}}">
+//   <svg width="28" height="28" class="icon" viewBox="0 0 28 28">
+//     <use xlink:href="#set1-activity" />
+//   </svg>
+// </button>
+// <button class="--link --icon {{modifier_class}}">
+//   <svg width="28" height="28" class="icon" viewBox="0 0 28 28">
+//     <use xlink:href="#set1-activity" />
+//   </svg>
+//   Click me
+// </button>
+// <button class="--block {{modifier_class}}">Click me</button>
 //
-// Style guide: Base.Buttons
+// Weight: -95
+//
+// Style guide: Buttons
 
-button,
-.button,
-input[type=button],
-input[type=submit] {
-  @include form-element;
+// nd-button($style)
+//
+// Sass mixin to get button styling to the component.
+//
+// Usage:
+//
+// <pre>
+// .my-component {
+//   @include nd-button('primary-lime');
+// }
+// </pre>
+//
+// $style - Name of the style.
+//
+// Weight:1
+//
+// Style guide: Buttons.Mixin
 
-  border: solid $button-border-width;
-  border-color: darken(color("green"), 5);
-  padding-left: $button-padding;
-  padding-right: $button-padding;
-  background-color: color("green");
-  color: color("white");
-  cursor: pointer;
-  text-transform: uppercase;
+$nd-button-defaults: (
+  padding: 0 10px,
+  icon-padding: 0 10px 0 0,
+  icon-only-padding: 0,
+  border: none,
+  height: 28px,
+  min-height: 28px,
+  width: auto,
+  text-transform: none,
+  font-size: 13px,
+  line-height: 28px,
+  outline: 0
+);
 
-  &:hover, &.active {
-    background-color: darken(color("green"), 5);
-    border-color: darken(color("green"), 10);
-    border: solid 1px darken(color("green"), 5);
-    color: color("white"); // for .button
+$nd-button-config:(
+  'default': (
+    background-color: color('lime'),
+    color: color('white')
+  ),
+  'primary-lime':(
+    background-color: color('lime'),
+    color: color('white')
+  ),
+  'primary-blue':(
+    background-color: color('royal-blue'),
+    color: color('white')
+  ),
+  'secondary-metal':(
+    background-color: color('metal'),
+    color: color('white')
+  ),
+  'secondary-abort':(
+    background-color: rgba(color('metal'), .15),
+    color: color('carbon')
+  )
+);
+
+@mixin nd-button($style){
+  @if not map-has-key($nd-button-config, $style) {
+    @error "Invalid style specified! Choose one of #{map-keys($nd-button-config)}";
+  }
+  $button-style: map-get($nd-button-config, $style);
+  background-color: map-get($button-style, 'background-color');
+  color: map-get($button-style, 'color');
+  padding: map-get($nd-button-defaults, 'padding');
+  border: map-get($nd-button-defaults, 'border');
+  height: map-get($nd-button-defaults, 'height');
+  min-height: map-get($nd-button-defaults, 'min-height');
+  text-transform: map-get($nd-button-defaults, 'text-transform');
+  font-size: map-get($nd-button-defaults, 'font-size');
+  line-height: map-get($nd-button-defaults, 'line-height');
+  width: map-get($nd-button-defaults, 'width');
+  outline: map-get($nd-button-defaults, 'outline');
+
+  &.--icon{
+    padding: map-get($nd-button-defaults, 'icon-padding');
+
+    svg {
+      float: left;
+    }
   }
 
-  &:disabled {
-    background-color: color("grey");
-    border-color: darken(color("grey"), 5);
-    cursor: not-allowed;
-  }
+  &.--icon-only{
+    padding: 0;
 
-  &.button--warn {
-    background-color: color("red");
-    border-color: darken(color("red"), 5);
-    color: color("white");
+    svg {
+      float: left;
+    }
 
-    &:hover {
-      background-color: darken(color("red"), 5);
-      border-color: darken(color("red"), 10);
-      color: color("white");
+    &:after{
+      content: "\200b";
     }
   }
 
-  &.button--info {
-    background-color: color("blue");
-    border-color: darken(color("blue"), 5);
-    color: color("white");
+  &.--block {
+    display: block;
+    width: 100%;
+  }
 
-    &:hover {
-      border-color: darken(color("blue"), 10);
-      background-color: darken(color("blue"), 5);
-      color: color("white");
+  &.--link{
+    background-color: color('white');
+    color: map-get($button-style, 'background-color');
+
+    &:hover{
+      background-color: color('white');
+      color: darken(map-get($button-style, 'background-color'), $hover-modificator);
+    }
+
+    &:active{
+      background-color: color('white');
+      color: darken(map-get($button-style, 'background-color'), $hover-modificator);
     }
   }
 
-  &.button--add {
-    background-color: transparent;
-    border-style: dashed;
-    border-color: color("grey");
-    color: color("grey");
-
-    &:before {
-      content: "+ ";
-    }
-
-    &:hover {
-      border-color: darken(color("grey"), 10);
-      color: darken(color("grey"), 10);
-    }
+  &:hover{
+    background-color: lighten(map-get($button-style, 'background-color'), $hover-modificator);
   }
 
-  // TODO: replace with link
-  &.button--text {
-    border: 0;
-    background-color: transparent;
-    color: color("grey-dark");
-    line-height: 25px;
-    text-transform: none;
-
-    &:hover {
-      border: 0;
-      background-color: transparent;
-      color: darken(color("grey-dark"), 10);
-    }
-
-    &.button--muted {
-      color: color("grey");
-
-      &:hover {
-        color: darken(color("grey"), 10);
-      }
-    }
+  &:active{
+    background-color: darken(map-get($button-style, 'background-color'), $hover-modificator);
   }
 }
 
-a.button {
-  display: inline-block;
-  line-height: $form-element-height;
-  text-align: center;
-}
+@if $show-samples {
+  button,
+  .button,
+  input[type=button],
+  input[type=submit]{
+    border-radius: $global-border-radius;
+    margin-bottom: $form-element-margin-bottom;
+    transition: .2s;
 
+    &.--primary-lime{
+      @include nd-button('primary-lime')
+    }
+    &.--primary-blue{
+      @include nd-button('primary-blue')
+    }
+    &.--secondary-metal{
+      @include nd-button('secondary-metal')
+    }
+    &.--secondary-abort{
+      @include nd-button('secondary-abort')
+    }
+  }
+}

@@ -1,0 +1,44 @@
+// Fonts
+//
+// We're using platform-specific fonts to match the default system look
+//
+//    macOS and iOS - SF UI Display<br>
+//    Windows - Segoe UI<br>
+//    Android - Roboto<br>
+//    Default - sans-serif<br>
+//
+// Weight: -100
+//
+//
+// Style guide: Typeface
+
+// nd-font-family()
+//
+// Sass mixin that sets font family (used on body by default).
+//
+// Usage:
+//
+// <pre>
+// .my-component {
+//   @include nd-font-family();
+// }
+// </pre>
+//
+// Style guide: Typeface.Functions
+
+@import url('https://fonts.googleapis.com/css?family=Rubik:400,500');
+
+$font-family: 'Rubik', sans-serif;
+
+@mixin nd-font-family(){
+  font-family: $font-family;
+}
+
+@if $show-samples {
+  .sample {
+    @include nd-font-family();
+    &:after{
+      content: "this is a sample text"
+    }
+  }
+}
