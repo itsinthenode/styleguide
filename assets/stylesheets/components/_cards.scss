@@ -164,9 +164,10 @@ $nd-cards-configuration: (
     )
   ),
   object-cards: (
-    border: 1px solid rgba(color('metal'), .2),
+    //border: 1px solid rgba(color('metal'), .2),
     card: (
       padding: 13px,
+      button-size: 36px,
       circle-radius: 34px,
       circle-color: color('lime'),
       circle-margin: 0 12px 0 0,
@@ -174,13 +175,15 @@ $nd-cards-configuration: (
       details-background-position: 0,
       details-padding: 0,
       progress-color: rgba(color('lime'), .3),
+      open-progress-color: rgba(color('lime'), .5),
       header-typography: 'secondary-headline',
       span-typography: 'meta-headline',
       background-color: lighten(color('metal'), 38%),
       open-background-color: color('white')
     ),
     sub-card: (
-      padding: 10px 13px,
+      padding: 7px 13px,
+      button-size: 36px,
       circle-radius: 19px,
       circle-color: color('lime'),
       circle-margin: 0 9px 0 0,
@@ -188,10 +191,10 @@ $nd-cards-configuration: (
       details-background-position: right 5px top 8px,
       details-padding: 0,
       progress-color: rgba(color('lime'), .3),
-      header-typography: 'sub-headline',
+      header-typography: 'secondary-headline',
       span-typography: 'meta-headline',
-      background-color: color('white'),
-      open-background-color: color('white')
+      background-color: lighten(color('metal'), 38%),
+      open-background-color: lighten(color('metal'), 38%)
     )
   )
 );
@@ -207,6 +210,8 @@ $nd-cards-configuration: (
 @mixin nd-square($dimension, $margin, $color){
   width: $dimension;
   height: $dimension;
+  flex: 0 0 auto;
+  z-index: 10;
   border-radius: $global-border-radius;
   background-color: transparent;
   margin: $margin;
@@ -214,8 +219,14 @@ $nd-cards-configuration: (
   padding-top: 4px;
   cursor: pointer;
   outline: none;
+  svg path {
+    fill: color('metal');
+  }
   &:hover {
     background-color: $color;
+    svg path {
+      fill: color('carbon');
+    }
   }
 }
 
@@ -257,7 +268,8 @@ $nd-cards-configuration: (
   }
 
   .square {
-    @include nd-square(map-get($style, 'circle-radius'), 0 0 0 13px, lighten(color(metal), 20%))
+    @include nd-square(map-get($style, 'button-size'), 0 0 0 13px, rgba(color(metal), 0.5));
+
   }
 
   .progress {
@@ -303,21 +315,48 @@ $nd-cards-configuration: (
       &.--open{
         background-color: map-get($card-style, 'open-background-color');
         box-shadow: 0px 0px 5px 0px rgba(color('metal'), 0.75);
+        margin-bottom: 15px;
+        .content {
+          border-bottom: 1px solid rgba(color('metal'), .2);
+        }
+        .progress {
+          background-color: map-get($card-style, 'open-progress-color');
+        }
       }
 
-      .sub-cards{
+      &:hover {
+        .progress {
+          background-color: map-get($card-style, 'open-progress-color');
+        }
+      }
+
+      .sub-cards {
         $sub-card-style: map-get($style-config, 'sub-card');
         display: none;
+        padding: 10px 10px 5px;
 
-
-        &+.sub-cards{
+        &+.sub-cards {
           border-top: map-get($style-config, 'border');
         }
 
-        .card{
+        .card {
+          margin-bottom: 5px;
           background-color: map-get($sub-card-style, 'background-color');
+          .square {
+            display: none;
+          }
           .content {
+            min-height: 50px;
             @include nd-card-content($sub-card-style);
+            border-bottom: none;
+          }
+          &:hover {
+            .progress {
+              //background-color: map-get($card-style, 'open-progress-color');
+            }
+            .square {
+              display: block;
+            }
           }
         }
       }
@@ -326,7 +365,7 @@ $nd-cards-configuration: (
 }
 
 @if $show-samples {
-  .nd-cards{
+  .nd-cards {
     border-radius: $global-border-radius;
     @include nd-cards('feed-cards');
     @include nd-cards('object-cards');
