@@ -93,20 +93,16 @@ $error-color: color('alarm-red');
 $error-box-shadow: 0 0 0 2px rgba($error-color,0.2);
 
 @mixin nd-input-has-errors(){
-  &.--has-errors {
+  border-color: $error-color;
+  &:focus{
     border-color: $error-color;
-    &:focus{
-      border-color: $error-color;
-      box-shadow: $error-box-shadow;
-    }
+    box-shadow: $error-box-shadow;
   }
 }
 
 @mixin nd-input-error-messages(){
-  .--error-message {
-    font-size: 11;
-    color: $error-color;
-  }
+  font-size: 11px;
+  color: $error-color;
 }
 
 // nd-input-placeholder()
