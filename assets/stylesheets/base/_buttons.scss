@@ -152,6 +152,12 @@ $nd-button-config:(
   &:active{
     background-color: darken(map-get($button-style, 'background-color'), $hover-modificator);
   }
+
+  &:disabled {
+    background-color: rgba(color('metal'),.15);
+    color: color('carbon');
+    cursor: not-allowed;
+  }
 }
 
 @if $show-samples {
