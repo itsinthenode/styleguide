@@ -10,14 +10,18 @@
   padding-left: 5px;
   line-height: 40px;
 
+  $color-index: 0;
   $color-names: map-keys($color-map);
-  @each $name, $value in $color-map {
-    &.sample#{index($color-names, $name)} {
-      background-color: $value;
-      &:after {
-        content: "#{$name}: #{$value}";
-        @if (lightness($value) < 30%) {
-          color: white;
+  @each $name, $variants in $color-map {
+    @each $variant-name, $value in $variants {
+      $color-index: $color-index + 1;
+      &.sample#{$color-index} {
+        background-color: $value;
+        &:after {
+          content: "#{$name} (#{$variant-name}): #{$value}";
+          @if (lightness($value) < 30%) {
+            color: white;
+          }
         }
       }
     }
@@ -39,49 +43,98 @@
 // <div class="color-sample sample8"></div>
 // <div class="color-sample sample9"></div>
 // <div class="color-sample sample10"></div>
+// <div class="color-sample sample11"></div>
+// <div class="color-sample sample12"></div>
+// <div class="color-sample sample13"></div>
+// <div class="color-sample sample14"></div>
+// <div class="color-sample sample15"></div>
+// <div class="color-sample sample16"></div>
+// <div class="color-sample sample17"></div>
+// <div class="color-sample sample18"></div>
+// <div class="color-sample sample19"></div>
+// <div class="color-sample sample20"></div>
+// <div class="color-sample sample21"></div>
+// <div class="color-sample sample22"></div>
+// <div class="color-sample sample23"></div>
+// <div class="color-sample sample24"></div>
 //
 // Style guide: Colors.Palette
 
-// Color palette (new names)
-$colors: (
+$color-palette: (
+  'white': (
+    base: #fff
+  ),
+  'black': (
+    base: #000
+  ),
+  'carbon': (
+    base: #202A37,
+    light1: #4D555F,
+    light2: #797F87,
+    light3: #A6AAAF,
+    light4: #D2D4D7,
+    light5: #E8E9EB,
+    light6: #F9F9FA
+  ),
+  'metal': (
+    base: #888FA8,
+    light1: #A0A5B9,
+    light2: #B8BCCB,
+    light3: #CFD2DC,
+    light4: #E7E9EE,
+    light5: #F3F3F6,
+    light6: #F8F9FA,
+    light7: #F7F8F9
+  ),
+  'blue': (
+    base: #0D58C1,
+    light1: #2278F1,
+    light2: #9FC4F9,
+    light3: #CAE6FF
+  ),
+  'green': (
+    base: #2ABF00,
+    light1: #BBEDA2
+  ),
+  'red': (
+    base: #E94659
+  )
+);
+
+// Color palette (compat names for new values)
+$colors-new-compat: (
   'carbon-dark': #0D1722,
-  'carbon': #202a37,
-  'metal': #888fa8,
   'metal-light': #cdd0d4,
-  'white': #ffffff,
   'royal-blue': #2278f1,
-  'sky-blue': #cbe6ff,
+  'sky-blue': #cae6ff,
   'lime': #2abf00,
   'grass': #bbeda2,
   'alarm-red': #e94659
 );
 
-// Color palette (old names)
-$colors-old: (
-  'black': #202a37,      // carbon
-  'grey': #888fa8,       // metal
-  'grey-light': #cdd0d4, // metal-light
-  'white': #ffffff,      // white
-  'blue': #2278f1,       // royal-blue
-  'blue-light': #cbe6ff, // sky-blue
-  'green': #2abf00,      // lime
-  'green-light': #bbeda2,// grass
-  'red': #e94659         // alarm-red
-);
-
 // Color palette (old compat names with old values)
 $colors-old-compat: (
+  'grey': #888fa8,       // metal
+  'grey-light': #cdd0d4, // metal-light
   'grey-lighter': #f0f0f0,
   'grey-dark': #b4b4b4,
+  'blue-light': #cae6ff, // sky-blue
+  'green-light': #bbeda2,// grass
   'orange': #ff8d11
 );
 
-// Color palette (all merged)
-$colors-all: map-merge($colors, map-merge($colors-old, $colors-old-compat));
+// helper variable
+$colors-all: map-merge(
+                $color-palette,
+                map-merge(
+                  $colors-old-compat,
+                  $colors-new-compat
+                )
+              );
 
 @if $show-samples {
   .color-sample {
-    @include color-samples($colors);
+    @include color-samples($color-palette);
   }
 }
 
@@ -106,39 +159,31 @@ $colors-all: map-merge($colors, map-merge($colors-old, $colors-old-compat));
 //
 // Style guide: Colors.Functions.color
 
-@function color($name) {
-  @if not map-has-key($colors-all, $name) {
-    @error "'#{$name}' is an invalid color! Choose one of #{map-keys($colors)}.";
-  }
-  @if not map-has-key($colors, $name) {
-    @if map-has-key($colors-old, $name) {
-      @warn "you used an old color: '#{$name}'. Please use the new ones.";
-    }
-    @if map-has-key($colors-old-compat, $name) {
-      @warn "you used a compat color: '#{$name}'. Please use the new ones.";
-    }
-  }
-  @return map-get($colors, $name);
-}
+@function color($name, $variant-name: 'base', $alpha: 1.0) {
+  $color-name: quote($name);
 
-// tint($color, $percentage)
-//
-// $color - color name
-// $percentage - how much of this color should be mixed with white
-//
-// Style guide: Colors.Functions.tint
-@function tint($color, $percentage) {
-  @return mix(white, $color, $percentage);
-}
+  @if not map-has-key($colors-all, $color-name) {
+    @error "'#{$name}' is an invalid color! Choose one of '#{map-keys($color-palette)}'.";
+  }
+  @if not map-has-key($color-palette, $color-name) {
+    @if map-has-key($colors-old-compat, $color-name) {
+      @warn "you used an old color: '#{$color-name}'. Please use the new ones.";
+      @return map-get($colors-old-compat, $color-name);
+    }
+    @if map-has-key($colors-new-compat, $color-name) {
+      @warn "you used a compat color: '#{$color-name}'. Please use the new ones.";
+      @return map-get($colors-new-compat, $color-name);
+    }
+  }
 
-// shade($color, $percentage)
-//
-// $color - color name
-// $percentage - how much of this color should be mixed with black
-//
-// Style guide: Colors.Functions.shade
-@function shade($color, $percentage) {
-  @return mix(black, $color, $percentage);
+  $variants: map-get($color-palette, $color-name);
+  $color: map-get($variants, $variant-name);
+
+  @if $alpha < 1.0 {
+    @return rgba($color, $alpha);
+  } @else {
+    @return $color;
+  }
 }
 
 // Deprecated
