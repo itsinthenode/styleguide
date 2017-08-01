@@ -181,7 +181,7 @@ $colors-all: map-merge(
   }
 
   $variants: map-get($color-palette, $color-name);
-  $color: map-get($variants, $variant-name);
+  $color: map-get($variants, unquote($variant-name));
 
   @if $alpha < 1.0 {
     @return rgba($color, $alpha);
