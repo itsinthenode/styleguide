@@ -219,6 +219,7 @@ $nd-cards-configuration: (
   padding-top: 4px;
   cursor: pointer;
   outline: none;
+  display: none;
   svg path {
     fill: color('metal');
   }
@@ -269,7 +270,12 @@ $nd-cards-configuration: (
 
   .square {
     @include nd-square(map-get($style, 'button-size'), 0 0 0 13px, rgba(color(metal), 0.5));
-
+    display: none;
+  }
+  &:hover {
+    .square {
+      display: block;
+    }
   }
 
   .progress {
@@ -291,12 +297,15 @@ $nd-cards-configuration: (
       $card-style: map-get($style-config, 'card');
       background-color: map-get($card-style, 'background-color');
 
+      transition: margin 0.3s;
+
       &+.card {
         border-top: map-get($style-config, 'border');
       }
 
       .content{
         @include nd-card-content($card-style);
+        min-height: 62px;
       }
 
       &.--open .sub-cards {
@@ -316,12 +325,15 @@ $nd-cards-configuration: (
         background-color: map-get($card-style, 'open-background-color');
         border: 1px solid rgba(color('metal'), .2);
         box-shadow: 0px 0px 5px 0px rgba(color('metal'), 0.75);
-        margin-bottom: 15px;
+        margin: 15px 0;
         .content {
           border-bottom: 1px solid rgba(color('metal'), .2);
         }
         .progress {
           background-color: map-get($card-style, 'open-progress-color');
+        }
+        .square {
+          display: block;
         }
       }
 
