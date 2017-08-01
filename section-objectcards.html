@@ -271,7 +271,11 @@
           <a href="section-objectcards.html">
           <span class="kss-nav__ref">10</span
           ><span class="kss-nav__name">Object Cards</span>
-        </a>         </li>
+        </a> 
+          <ul class="kss-nav__menu-child">
+              
+          </ul>
+        </li>
         <li class="kss-nav__menu-item">
           <a href="section-dropout-panel.html">
           <span class="kss-nav__ref">11</span
@@ -296,10 +300,159 @@
     </nav>
   </div>
   <article role="main" class="kss-main">
-    <div id="kssref-0" class="kss-section kss-section--depth-0 kss-overview kss-style">
-       
+   
+    <div id="kssref-objectcards" class="kss-section kss-section--depth-1">
+
+        <div class="kss-style">
+          <h1 class="kss-title kss-title--level-1">
+            <a class="kss-title__permalink" href="#kssref-objectcards">
+          <span class="kss-title__ref">
+              10
+            <span class="kss-title__permalink-hash">
+                #ObjectCards
+            </span>
+          </span>
+          Object Cards
+        </a>
+          </h1>
+
+         </div>
+
+        <div class="kss-modifier__wrapper">
+          <div class="kss-modifier__heading kss-style">
+            Example
+          </div>
+          <div class="kss-modifier__example">
+            <div class="nd-cards --nd-object-cards">
+    <div class="card  --open">
+        <div class="content">
+            <div class="circle"></div>
+            <div class="details">
+                <header>Main component</header>
+                <span>Metadata</span>
+            </div>
+            <div class="square"></div>
+            <div class="progress" style="width:20%"></div>
+        </div>
+        <div class="sub-cards">
+            <div class="card">
+                <div class="content">
+                    <div class="circle"></div>
+                    <div class="details">
+                        <header>Sub component</header>
+                    </div>
+                    <div class="progress" style="width:25%"></div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="content">
+                    <div class="circle"></div>
+                    <div class="details">
+                        <header>Sub component</header>
+                    </div>
+                    <div class="progress" style="width:15%"></div>
+                </div>
+            </div>
+        </div>
     </div>
-    
+    <div class="card">
+        <div class="content">
+            <div class="circle"></div>
+            <div class="details">
+                <header>Main component</header>
+                <span>Metadata</span>
+            </div>
+            <div class="square"></div>
+        </div>
+        <div class="sub-cards">
+            <div class="card">
+                <div class="content">
+                    <div class="circle"></div>
+                    <div class="details">
+                        <header>Sub component</header>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="content">
+                    <div class="circle"></div>
+                    <div class="details">
+                        <header>Sub component</header>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+          </div>
+        </div>
+
+        <div class="kss-markup kss-style">
+          <pre class="prettyprint linenums lang-html"><code data-language="html">&lt;div class=&quot;nd-cards --nd-object-cards&quot;&gt;
+    &lt;div class=&quot;card  --open&quot;&gt;
+        &lt;div class=&quot;content&quot;&gt;
+            &lt;div class=&quot;circle&quot;&gt;&lt;/div&gt;
+            &lt;div class=&quot;details&quot;&gt;
+                &lt;header&gt;Main component&lt;/header&gt;
+                &lt;span&gt;Metadata&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;square&quot;&gt;&lt;/div&gt;
+            &lt;div class=&quot;progress&quot; style=&quot;width:20%&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;sub-cards&quot;&gt;
+            &lt;div class=&quot;card&quot;&gt;
+                &lt;div class=&quot;content&quot;&gt;
+                    &lt;div class=&quot;circle&quot;&gt;&lt;/div&gt;
+                    &lt;div class=&quot;details&quot;&gt;
+                        &lt;header&gt;Sub component&lt;/header&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;progress&quot; style=&quot;width:25%&quot;&gt;&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;card&quot;&gt;
+                &lt;div class=&quot;content&quot;&gt;
+                    &lt;div class=&quot;circle&quot;&gt;&lt;/div&gt;
+                    &lt;div class=&quot;details&quot;&gt;
+                        &lt;header&gt;Sub component&lt;/header&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;progress&quot; style=&quot;width:15%&quot;&gt;&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;card&quot;&gt;
+        &lt;div class=&quot;content&quot;&gt;
+            &lt;div class=&quot;circle&quot;&gt;&lt;/div&gt;
+            &lt;div class=&quot;details&quot;&gt;
+                &lt;header&gt;Main component&lt;/header&gt;
+                &lt;span&gt;Metadata&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;square&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;sub-cards&quot;&gt;
+            &lt;div class=&quot;card&quot;&gt;
+                &lt;div class=&quot;content&quot;&gt;
+                    &lt;div class=&quot;circle&quot;&gt;&lt;/div&gt;
+                    &lt;div class=&quot;details&quot;&gt;
+                        &lt;header&gt;Sub component&lt;/header&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;card&quot;&gt;
+                &lt;div class=&quot;content&quot;&gt;
+                    &lt;div class=&quot;circle&quot;&gt;&lt;/div&gt;
+                    &lt;div class=&quot;details&quot;&gt;
+                        &lt;header&gt;Sub component&lt;/header&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+         
+    </div>
+  
   </article>
 
   <!-- SCRIPTS -->

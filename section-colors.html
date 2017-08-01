@@ -231,7 +231,32 @@
           <a href="section-colors.html">
           <span class="kss-nav__ref">2</span
           ><span class="kss-nav__name">Colors</span>
-        </a>         </li>
+        </a> 
+          <ul class="kss-nav__menu-child">
+               
+            <li class="kss-nav__menu-item">
+              <a href="section-colors.html#kssref-colors-palette">
+                <span class="kss-nav__ref ">2.1</span
+                ><span class="kss-nav__name">Color palette</span>
+              </a>
+            </li>
+              
+            <li class="kss-nav__menu-item">
+              <a href="section-colors.html#kssref-colors-functions">
+                <span class="kss-nav__ref ">2.2</span
+                ><span class="kss-nav__name">Color functions</span>
+              </a>
+            </li>
+              
+            <li class="kss-nav__menu-item">
+              <a href="section-colors.html#kssref-colors-functions-color">
+                <span class="kss-nav__ref kss-nav__ref-child">2.2.1</span
+                ><span class="kss-nav__name">color($name)</span>
+              </a>
+            </li>
+             
+          </ul>
+        </li>
         <li class="kss-nav__menu-item">
           <a href="section-typography.html">
           <span class="kss-nav__ref">3</span
@@ -296,10 +321,128 @@
     </nav>
   </div>
   <article role="main" class="kss-main">
-    <div id="kssref-0" class="kss-section kss-section--depth-0 kss-overview kss-style">
-       
+   
+    <div id="kssref-colors" class="kss-section kss-section--depth-1">
+
+        <div class="kss-style">
+          <h1 class="kss-title kss-title--level-1">
+            <a class="kss-title__permalink" href="#kssref-colors">
+          <span class="kss-title__ref">
+              2
+            <span class="kss-title__permalink-hash">
+                #Colors
+            </span>
+          </span>
+          Colors
+        </a>
+          </h1>
+
+         </div>
+
+ 
     </div>
-    
+        <section id="kssref-colors-palette" class="kss-section kss-section--depth-2">
+
+        <div class="kss-style">
+          <h2 class="kss-title kss-title--level-2">
+            <a class="kss-title__permalink" href="#kssref-colors-palette">
+          <span class="kss-title__ref">
+              2.1
+            <span class="kss-title__permalink-hash">
+                #Colors.Palette
+            </span>
+          </span>
+          Color palette
+        </a>
+          </h2>
+
+         </div>
+
+        <div class="kss-modifier__wrapper">
+          <div class="kss-modifier__heading kss-style">
+            Example
+          </div>
+          <div class="kss-modifier__example">
+            <div class="color-sample sample1"></div>
+<div class="color-sample sample2"></div>
+<div class="color-sample sample3"></div>
+<div class="color-sample sample4"></div>
+<div class="color-sample sample5"></div>
+<div class="color-sample sample6"></div>
+<div class="color-sample sample7"></div>
+<div class="color-sample sample8"></div>
+<div class="color-sample sample9"></div>
+<div class="color-sample sample10"></div>
+          </div>
+        </div>
+
+        <div class="kss-markup kss-style">
+          <pre class="prettyprint linenums lang-html"><code data-language="html">&lt;div class=&quot;color-sample sample1&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;color-sample sample2&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;color-sample sample3&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;color-sample sample4&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;color-sample sample5&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;color-sample sample6&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;color-sample sample7&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;color-sample sample8&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;color-sample sample9&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;color-sample sample10&quot;&gt;&lt;/div&gt;</code></pre>
+        </div>
+             </section>
+            <section id="kssref-colors-functions" class="kss-section kss-section--depth-2">
+
+        <div class="kss-style">
+          <h2 class="kss-title kss-title--level-2">
+            <a class="kss-title__permalink" href="#kssref-colors-functions">
+          <span class="kss-title__ref">
+              2.2
+            <span class="kss-title__permalink-hash">
+                #Colors.Functions
+            </span>
+          </span>
+          Color functions
+        </a>
+          </h2>
+
+         </div>
+
+     </section>
+            <section id="kssref-colors-functions-color" class="kss-section kss-section--depth-3">
+
+        <div class="kss-style">
+          <h3 class="kss-title kss-title--level-3">
+            <a class="kss-title__permalink" href="#kssref-colors-functions-color">
+          <span class="kss-title__ref">
+              2.2.1
+            <span class="kss-title__permalink-hash">
+                #Colors.Functions.color
+            </span>
+          </span>
+          color($name)
+        </a>
+          </h3>
+
+          <ul class="kss-parameters">
+            <li class="kss-parameters__item">
+              <code class="kss-parameters__name">$name</code>
+              <div class="kss-parameters__description">color name</div>
+            </li>
+          </ul>
+           
+          <div class="kss-description">
+            <p>Sass function that returns specified color hex value from color palette</p>
+<p>Usage:</p>
+<pre>
+.my-component {
+  background-color: color("lime");
+  color: color("carbon");
+}
+</pre>
+          </div>
+        </div>
+
+     </section>
+      
   </article>
 
   <!-- SCRIPTS -->

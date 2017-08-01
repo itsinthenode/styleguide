@@ -4,7 +4,7 @@ general:
       - gh-pages
 machine:
   node:
-    version: 4.2.4
+    version: 6.11.1
 dependencies:
   pre:
     - npm config set spin false
@@ -12,7 +12,7 @@ dependencies:
     - npm install
 deployment:
   github:
-    branch: master
+    branch: development
     commands:
       - git config --global user.email "circleci@itsinthenode.com"
       - git config --global user.name "CircleCI Bot"
