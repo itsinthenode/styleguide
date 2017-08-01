@@ -74,6 +74,10 @@ $nd-typography-config: (
   )
 );
 
+@mixin text-style($name) {
+  @warn "'text-style' is deprecated. Please use... (TDA)";
+};
+
 @mixin nd-typography($style){
   @include nd-font-family();
   @if not map-has-key($nd-typography-config, $style) {
