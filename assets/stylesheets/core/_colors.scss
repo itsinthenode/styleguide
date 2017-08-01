@@ -74,7 +74,18 @@ $colors-old: (
 $colors-old-compat: (
   'grey-lighter': #f0f0f0,
   'grey-dark': #b4b4b4,
-  'orange': #ff8d11
+  'orange': #ff8d11,
+
+  // not in Sketch pattern library
+  'grey-darker': #797979,
+  'yellow': #FFD700,
+  'yellow-light': #FFECAB,
+  'red-light': lighten(#EC2B4B, 10),
+  'purple': #4A38A5,
+  'blue-light': #40ABEC,
+  'blue-lighter': #ADCCE6,
+  'green-ci': #71BD2B,
+  'green-lighter': #D3EEB7
 );
 
 // Color palette (all merged)
