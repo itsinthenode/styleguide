@@ -57,6 +57,7 @@
 // <div class="color-sample sample22"></div>
 // <div class="color-sample sample23"></div>
 // <div class="color-sample sample24"></div>
+// <div class="color-sample sample25"></div>
 //
 // Style guide: Colors.Palette
 
@@ -91,6 +92,9 @@ $color-palette: (
     light1: #2278F1,
     light2: #9FC4F9,
     light3: #CAE6FF
+  ),
+  'turquoise': (
+    base: #2DB3FF
   ),
   'green': (
     base: #2ABF00,
