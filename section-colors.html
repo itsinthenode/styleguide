@@ -251,7 +251,7 @@
             <li class="kss-nav__menu-item">
               <a href="section-colors.html#kssref-colors-functions-color">
                 <span class="kss-nav__ref kss-nav__ref-child">2.2.1</span
-                ><span class="kss-nav__name">color($name)</span>
+                ><span class="kss-nav__name">color($name, $variant-name, $alpha)</span>
               </a>
             </li>
              
@@ -448,7 +448,7 @@
                 #Colors.Functions.color
             </span>
           </span>
-          color($name)
+          color($name, $variant-name, $alpha)
         </a>
           </h3>
 
@@ -457,6 +457,14 @@
               <code class="kss-parameters__name">$name</code>
               <div class="kss-parameters__description">color name</div>
             </li>
+            <li class="kss-parameters__item">
+              <code class="kss-parameters__name">$variant-name</code>
+              <div class="kss-parameters__description">variant name (default: &#39;base&#39;)</div>
+            </li>
+            <li class="kss-parameters__item">
+              <code class="kss-parameters__name">$alpha</code>
+              <div class="kss-parameters__description">alpha value (default: 1.0)</div>
+            </li>
           </ul>
            
           <div class="kss-description">
@@ -464,8 +472,8 @@
 <p>Usage:</p>
 <pre>
 .my-component {
-  background-color: color("lime");
-  color: color("carbon");
+  background-color: color("blue");
+  color: color("carbon", "light1");
 }
 </pre>
           </div>
