@@ -564,6 +564,20 @@ h1, h2, h3, p, div {
     vertical-align: text-top;
     fill: currentColor; }
 
+.--nd-meta-small {
+  font-family: "Rubik", sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  color: #888FA8;
+  letter-spacing: -0.09px;
+  text-transform: none;
+  line-height: 13px; }
+  .--nd-meta-small svg.scale {
+    height: 11px;
+    width: auto;
+    vertical-align: text-top;
+    fill: currentColor; }
+
 .--nd-paragraph-text {
   font-family: "Rubik", sans-serif;
   font-size: 12px;
@@ -1490,6 +1504,8 @@ p {
               background-color: rgba(136, 143, 168, 0.2); }
           .nd-cards.--nd-feed-cards .card .sub-cards .card:hover .square {
             display: block; }
+    .nd-cards.--nd-feed-cards:first-child .card.--open {
+      margin-top: 0; }
   .nd-cards.--nd-object-cards .card {
     background-color: #f8f8fa;
     -webkit-transition: margin 0.3s;
@@ -1705,6 +1721,8 @@ p {
             background-color: rgba(42, 191, 0, 0.3); }
         .nd-cards.--nd-object-cards .card .sub-cards .card:hover .square {
           display: block; }
+  .nd-cards.--nd-object-cards:first-child .card.--open {
+    margin-top: 0; }
 
 .nd-dropout-panel {
   position: relative;
