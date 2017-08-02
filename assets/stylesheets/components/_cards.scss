@@ -374,6 +374,11 @@ $nd-cards-configuration: (
         }
       }
     }
+    &:first-child {
+      .card.--open {
+          margin-top: 0;
+      }
+    }
   }
 }
 
