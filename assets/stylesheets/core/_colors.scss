@@ -150,7 +150,7 @@ $colors-all: map-merge(
 //
 // Style guide: Colors.Functions
 
-// color($name)
+// color($name, $variant-name, $alpha)
 //
 // Sass function that returns specified color hex value from color palette
 //
@@ -158,12 +158,14 @@ $colors-all: map-merge(
 //
 // <pre>
 // .my-component {
-//   background-color: color("lime");
-//   color: color("carbon");
+//   background-color: color("blue");
+//   color: color("carbon", "light1");
 // }
 // </pre>
 //
 // $name - color name
+// $variant-name - variant name (default: 'base')
+// $alpha - alpha value (default: 1.0)
 //
 // Style guide: Colors.Functions.color
 
