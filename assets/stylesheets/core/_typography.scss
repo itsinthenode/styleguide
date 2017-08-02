@@ -64,6 +64,14 @@ $nd-typography-config: (
     text-transformation: uppercase,
     line-height: 1
   ),
+  "meta-small": (
+    font-size: 11px,
+    font-weight: 400,
+    color-name: 'metal',
+    letter-spacing: -0.09px,
+    text-transformation: none,
+    line-height: 13px
+  ),
   "paragraph-text": (
     font-size: 12px,
     font-weight: 400,
