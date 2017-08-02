@@ -36,9 +36,9 @@ $nd-typography-config: (
     font-size: 20px,
     font-weight: 300,
     color-name: 'carbon',
-    letter-spacing: normal,
+    letter-spacing: -0.2px,
     text-transformation: none,
-    line-height: 1
+    line-height: 24px
   ),
   "secondary-headline": (
     font-size: 14px,
@@ -52,9 +52,9 @@ $nd-typography-config: (
     font-size: 14px,
     font-weight: 400,
     color-name: 'metal',
-    letter-spacing: normal,
+    letter-spacing: -0.1px,
     text-transformation: none,
-    line-height: 1
+    line-height: 17px
   ),
   "meta-headline": (
     font-size: 10px,
@@ -73,6 +73,10 @@ $nd-typography-config: (
     line-height: 20px
   )
 );
+
+@mixin text-style($name) {
+  @warn "'text-style' is deprecated. Please use... (TDA)";
+};
 
 @mixin nd-typography($style){
   @include nd-font-family();
