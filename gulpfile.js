@@ -35,7 +35,7 @@ gulp.task('sass', function() {
 
 gulp.task('styleguide', function(cb) {
   kss({
-    "css": ["../dist/stylesheets/examples.css", "stylesheets/styleguide.css"], // hack to deploy better
+    "css": ["stylesheets/examples.css", "stylesheets/styleguide.css"], // hack to deploy better
     "destination":  "styleguide",
     "source": ["assets"],
     "template": ["custom-template"],
