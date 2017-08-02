@@ -383,14 +383,14 @@ textarea {
   padding-left: 5px;
   line-height: 40px; }
   .color-sample.sample1 {
-    background-color: #fff; }
-    .color-sample.sample1:after {
-      content: "white (base): #fff"; }
-  .color-sample.sample2 {
     background-color: #000; }
-    .color-sample.sample2:after {
+    .color-sample.sample1:after {
       content: "black (base): #000";
       color: white; }
+  .color-sample.sample2 {
+    background-color: #fff; }
+    .color-sample.sample2:after {
+      content: "white (base): #fff"; }
   .color-sample.sample3 {
     background-color: #202A37; }
     .color-sample.sample3:after {
