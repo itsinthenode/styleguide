@@ -4,7 +4,7 @@
  * 2. Correct the line height in all browsers.
  * 3. Prevent adjustments of font size after orientation changes in IE and iOS.
  */
-@import url("https://fonts.googleapis.com/css?family=Rubik:400,500");
+@import url("https://fonts.googleapis.com/css?family=Rubik:300,400,500");
 html {
   font-family: sans-serif;
   /* 1 */
@@ -1333,7 +1333,8 @@ p {
             letter-spacing: normal;
             text-transform: none;
             line-height: 1;
-            line-height: 16px; }
+            line-height: 17px;
+            letter-spacing: -0.2px; }
             .nd-cards.--nd-feed-cards .card .content .details header svg.scale {
               height: 14px;
               width: auto;
@@ -1449,7 +1450,8 @@ p {
                 letter-spacing: -0.1px;
                 text-transform: none;
                 line-height: 17px;
-                line-height: 16px; }
+                line-height: 17px;
+                letter-spacing: -0.2px; }
                 .nd-cards.--nd-feed-cards .card .sub-cards .card .content .details header svg.scale {
                   height: 14px;
                   width: auto;
@@ -1545,7 +1547,8 @@ p {
           letter-spacing: normal;
           text-transform: none;
           line-height: 1;
-          line-height: 16px; }
+          line-height: 17px;
+          letter-spacing: -0.2px; }
           .nd-cards.--nd-object-cards .card .content .details header svg.scale {
             height: 14px;
             width: auto;
@@ -1664,7 +1667,8 @@ p {
               letter-spacing: normal;
               text-transform: none;
               line-height: 1;
-              line-height: 16px; }
+              line-height: 17px;
+              letter-spacing: -0.2px; }
               .nd-cards.--nd-object-cards .card .sub-cards .card .content .details header svg.scale {
                 height: 14px;
                 width: auto;
