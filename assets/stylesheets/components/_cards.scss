@@ -253,8 +253,8 @@ $nd-cards-configuration: (
 
     header {
       @include nd-typography(map-get($style, 'header-typography'));
-      line-height: 16px;
-
+      line-height: 17px;
+      letter-spacing: -0.2px;
       &+span{
         margin-top: 5px;
       }
