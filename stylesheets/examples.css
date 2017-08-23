@@ -104,7 +104,8 @@ abbr[title] {
   /* 1 */
   text-decoration: underline;
   /* 2 */
-  text-decoration: underline dotted;
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
   /* 2 */ }
 
 /**
@@ -965,12 +966,6 @@ input[type=tel].--nd-text-input {
     color: #888FA8;
     font-size: 13px;
     opacity: 1; }
-  input[type=text].--nd-text-input::-moz-placeholder,
-  input[type=email].--nd-text-input::-moz-placeholder,
-  input[type=tel].--nd-text-input::-moz-placeholder {
-    color: #888FA8;
-    font-size: 13px;
-    opacity: 1; }
   input[type=text].--nd-text-input:-ms-input-placeholder,
   input[type=email].--nd-text-input:-ms-input-placeholder,
   input[type=tel].--nd-text-input:-ms-input-placeholder {
@@ -1032,10 +1027,6 @@ textarea {
       -webkit-box-shadow: 0 0 0 2px #CBE6FF;
               box-shadow: 0 0 0 2px #CBE6FF; }
     textarea.--nd-text-input::-webkit-input-placeholder {
-      color: #888FA8;
-      font-size: 13px;
-      opacity: 1; }
-    textarea.--nd-text-input::-moz-placeholder {
       color: #888FA8;
       font-size: 13px;
       opacity: 1; }
