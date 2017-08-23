@@ -9,13 +9,13 @@ var sourcemaps  = require('gulp-sourcemaps');
 var autoprefixer = require('gulp-autoprefixer');
 
 // Static Server + watching scss/html files
-gulp.task('serve', ['styleguide', 'sass'], function() {
+gulp.task('serve', ['styleguide-serve', 'sass'], function() {
   browserSync.init({
     server: "./",
     port: 3001 // Rails is on 3000
   });
 
-  gulp.watch("assets/**/*.scss", ['styleguide', 'sass']);
+  gulp.watch("assets/**/*.scss", ['styleguide-serve', 'sass']);
   gulp.watch("assets/**/*.md").on('change', browserSync.reload);
   gulp.watch("styleguide/*.html").on('change', browserSync.reload);
 });
@@ -31,6 +31,16 @@ gulp.task('sass', function() {
   .pipe(sourcemaps.write('./'))
   .pipe(gulp.dest('./dist/'))
   .pipe(browserSync.stream());
+});
+
+gulp.task('styleguide-serve', function(cb) {
+  kss({
+    "css": ["../dist/stylesheets/examples.css", "../dist/stylesheets/styleguide.css"], // hack to deploy better
+    "destination":  "styleguide",
+    "source": ["assets"],
+    "template": ["custom-template"],
+    "title": "Node Style Guide"
+  }, cb);
 });
 
 gulp.task('styleguide', function(cb) {
