@@ -6,3 +6,4 @@
 /pkg/
 /styleguide
 /tmp/
+package-lock.json
