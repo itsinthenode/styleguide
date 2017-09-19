@@ -485,9 +485,17 @@ textarea {
     .color-sample.sample25:after {
       content: "red (base): #E94659"; }
   .color-sample.sample26 {
-    background-color: #ffcc33; }
+    background-color: #E39618; }
     .color-sample.sample26:after {
+      content: "yellow (dark1): #E39618"; }
+  .color-sample.sample27 {
+    background-color: #ffcc33; }
+    .color-sample.sample27:after {
       content: "yellow (base): #ffcc33"; }
+  .color-sample.sample28 {
+    background-color: #FEFBED; }
+    .color-sample.sample28:after {
+      content: "yellow (light1): #FEFBED"; }
 
 html {
   -webkit-box-sizing: border-box;
