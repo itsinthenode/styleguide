@@ -104,7 +104,8 @@ abbr[title] {
   /* 1 */
   text-decoration: underline;
   /* 2 */
-  text-decoration: underline dotted;
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
   /* 2 */ }
 
 /**
@@ -468,25 +469,37 @@ textarea {
     .color-sample.sample21:after {
       content: "blue (light3): #CAE6FF"; }
   .color-sample.sample22 {
-    background-color: #2DB3FF; }
+    background-color: #F4F5FE; }
     .color-sample.sample22:after {
-      content: "turquoise (base): #2DB3FF"; }
+      content: "blue (light4): #F4F5FE"; }
   .color-sample.sample23 {
-    background-color: #2ABF00; }
+    background-color: #2DB3FF; }
     .color-sample.sample23:after {
-      content: "green (base): #2ABF00"; }
+      content: "turquoise (base): #2DB3FF"; }
   .color-sample.sample24 {
-    background-color: #BBEDA2; }
+    background-color: #2ABF00; }
     .color-sample.sample24:after {
-      content: "green (light1): #BBEDA2"; }
+      content: "green (base): #2ABF00"; }
   .color-sample.sample25 {
-    background-color: #E94659; }
+    background-color: #BBEDA2; }
     .color-sample.sample25:after {
-      content: "red (base): #E94659"; }
+      content: "green (light1): #BBEDA2"; }
   .color-sample.sample26 {
-    background-color: #ffcc33; }
+    background-color: #E94659; }
     .color-sample.sample26:after {
+      content: "red (base): #E94659"; }
+  .color-sample.sample27 {
+    background-color: #E39618; }
+    .color-sample.sample27:after {
+      content: "yellow (dark1): #E39618"; }
+  .color-sample.sample28 {
+    background-color: #ffcc33; }
+    .color-sample.sample28:after {
       content: "yellow (base): #ffcc33"; }
+  .color-sample.sample29 {
+    background-color: #FEFBED; }
+    .color-sample.sample29:after {
+      content: "yellow (light1): #FEFBED"; }
 
 html {
   -webkit-box-sizing: border-box;
@@ -965,15 +978,15 @@ input[type=tel].--nd-text-input {
     color: #888FA8;
     font-size: 13px;
     opacity: 1; }
-  input[type=text].--nd-text-input::-moz-placeholder,
-  input[type=email].--nd-text-input::-moz-placeholder,
-  input[type=tel].--nd-text-input::-moz-placeholder {
-    color: #888FA8;
-    font-size: 13px;
-    opacity: 1; }
   input[type=text].--nd-text-input:-ms-input-placeholder,
   input[type=email].--nd-text-input:-ms-input-placeholder,
   input[type=tel].--nd-text-input:-ms-input-placeholder {
+    color: #888FA8;
+    font-size: 13px;
+    opacity: 1; }
+  input[type=text].--nd-text-input::-ms-input-placeholder,
+  input[type=email].--nd-text-input::-ms-input-placeholder,
+  input[type=tel].--nd-text-input::-ms-input-placeholder {
     color: #888FA8;
     font-size: 13px;
     opacity: 1; }
@@ -1035,11 +1048,11 @@ textarea {
       color: #888FA8;
       font-size: 13px;
       opacity: 1; }
-    textarea.--nd-text-input::-moz-placeholder {
+    textarea.--nd-text-input:-ms-input-placeholder {
       color: #888FA8;
       font-size: 13px;
       opacity: 1; }
-    textarea.--nd-text-input:-ms-input-placeholder {
+    textarea.--nd-text-input::-ms-input-placeholder {
       color: #888FA8;
       font-size: 13px;
       opacity: 1; }
