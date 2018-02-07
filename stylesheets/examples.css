@@ -104,7 +104,8 @@ abbr[title] {
   /* 1 */
   text-decoration: underline;
   /* 2 */
-  text-decoration: underline dotted;
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
   /* 2 */ }
 
 /**
@@ -468,9 +469,9 @@ textarea {
     .color-sample.sample21:after {
       content: "blue (light3): #CAE6FF"; }
   .color-sample.sample22 {
-    background-color: #F4F5FE; }
+    background-color: #E3F2FF; }
     .color-sample.sample22:after {
-      content: "blue (light4): #F4F5FE"; }
+      content: "blue (light4): #E3F2FF"; }
   .color-sample.sample23 {
     background-color: #2DB3FF; }
     .color-sample.sample23:after {
@@ -977,15 +978,15 @@ input[type=tel].--nd-text-input {
     color: #888FA8;
     font-size: 13px;
     opacity: 1; }
-  input[type=text].--nd-text-input::-moz-placeholder,
-  input[type=email].--nd-text-input::-moz-placeholder,
-  input[type=tel].--nd-text-input::-moz-placeholder {
-    color: #888FA8;
-    font-size: 13px;
-    opacity: 1; }
   input[type=text].--nd-text-input:-ms-input-placeholder,
   input[type=email].--nd-text-input:-ms-input-placeholder,
   input[type=tel].--nd-text-input:-ms-input-placeholder {
+    color: #888FA8;
+    font-size: 13px;
+    opacity: 1; }
+  input[type=text].--nd-text-input::-ms-input-placeholder,
+  input[type=email].--nd-text-input::-ms-input-placeholder,
+  input[type=tel].--nd-text-input::-ms-input-placeholder {
     color: #888FA8;
     font-size: 13px;
     opacity: 1; }
@@ -1047,11 +1048,11 @@ textarea {
       color: #888FA8;
       font-size: 13px;
       opacity: 1; }
-    textarea.--nd-text-input::-moz-placeholder {
+    textarea.--nd-text-input:-ms-input-placeholder {
       color: #888FA8;
       font-size: 13px;
       opacity: 1; }
-    textarea.--nd-text-input:-ms-input-placeholder {
+    textarea.--nd-text-input::-ms-input-placeholder {
       color: #888FA8;
       font-size: 13px;
       opacity: 1; }
