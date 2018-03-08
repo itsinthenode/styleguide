@@ -1,29 +1,5 @@
-$show-samples: false !default; // disable sample generation
-
 @import "normalize";
 
-@import "core/fonts";
-@import "core/breakpoints";
-@import "core/colors";
-@import "core/layout";
-@import "core/mobile";
-@import "core/typography";
-@import "core/variables";
-@import "core/icons";
-
-@import "base/buttons";
-@import "base/inputs";
-@import "base/images";
-@import "base/links";
-@import "base/label";
-@import "base/lists";
-@import "base/text";
-
-// Modules
-//
-// logical components that can consist of multiple tags
-//
-// Style guide: Modules
-@import "components/cards";
-@import "components/dropout";
-@import "components/tabbed-nav";
+@import "styleguide/core";
+@import "styleguide/base";
+@import "styleguide/components";
