@@ -93,10 +93,14 @@ $error-color: color('alarm-red');
 $error-box-shadow: 0 0 0 2px rgba($error-color,0.2);
 
 @mixin nd-input-has-errors(){
-  border-color: $error-color;
-  &:focus{
+  &.--has-errors,
+  &[aria-invalid="true"] {
     border-color: $error-color;
-    box-shadow: $error-box-shadow;
+
+    &:focus{
+      border-color: $error-color;
+      box-shadow: $error-box-shadow;
+    }
   }
 }
 
@@ -160,7 +164,9 @@ $error-box-shadow: 0 0 0 2px rgba($error-color,0.2);
   @include nd-input-disabled();
   @include nd-input-has-errors();
 
-  &.--has-errors, &[aria-invalid="true"], &[aria-invalid="true"]:focus {
+  &.--has-errors,
+  &[aria-invalid="true"],
+  &[aria-invalid="true"]:focus {
     background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOHB4IiBoZWlnaHQ9IjE4cHgiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjggMjgiPgogICAgPHVzZSB4bGluazpocmVmPSIjYTE5IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0IDQpIiAvPgogICAgPGRlZnM+CiAgICAgICAgPHBhdGggZmlsbD0iI2U5NDY1OSIgaWQ9ImExOSIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMTAgMjBjNS41MjI5IDAgMTAtNC40NzcyIDEwLTEwIDAtNS41MjI4My00LjQ3NzEtMTAtMTAtMTBDNC40NzcxNCAwIDAgNC40NzcxNyAwIDEwYzAgNS41MjI4IDQuNDc3MTQgMTAgMTAgMTB6TTkuNTcyNiA0Yy0uNTY1MjEgMC0xLjAxODEuNDY4MDItLjk5OTQ1IDEuMDMyOTZsLjE4NDAyIDUuNTc4MTRjLjAxNzc2LjUzOTIuNDU5OTkuOTY3Ljk5OTQ1Ljk2N2guNTY0ODhjLjUzOTUgMCAuOTgxNy0uNDI3OC45OTk1LS45NjdsLjE4NC01LjU3ODE0QzExLjUyMzYgNC40NjgwMiAxMS4wNzA3IDQgMTAuNTA1NSA0aC0uOTMyOXptLjQ2NjUgMTEuNTQ2OWMtMS4wMDc4NSAwLTEuNTkzNzktLjUyMzUtMS41OTM3OS0xLjQyMTkgMC0uOTA2Mi41ODU5NC0xLjQyOTcgMS41OTM3OS0xLjQyOTcgMS4wMDc4IDAgMS42MDE1LjUyMzUgMS42MDE1IDEuNDI5NyAwIC44OTg0LS41OTM3IDEuNDIxOS0xLjYwMTUgMS40MjE5eiIKICAgICAgICAvPgogICAgPC9kZWZzPgo8L3N2Zz4=) no-repeat;
     background-position: right 11px center;
     padding-right: 40px;
