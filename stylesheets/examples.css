@@ -964,8 +964,7 @@ input[type=tel].--nd-text-input {
   color: #202A37;
   background-color: #fff;
   -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
-          box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
-  border-color: #e94659; }
+          box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset; }
   input[type=text].--nd-text-input:focus,
   input[type=email].--nd-text-input:focus,
   input[type=tel].--nd-text-input:focus {
@@ -1002,12 +1001,20 @@ input[type=tel].--nd-text-input {
     background-color: #fff;
     opacity: 0.5;
     cursor: not-allowed; }
-  input[type=text].--nd-text-input:focus,
-  input[type=email].--nd-text-input:focus,
-  input[type=tel].--nd-text-input:focus {
-    border-color: #e94659;
-    -webkit-box-shadow: 0 0 0 2px rgba(233, 70, 89, 0.2);
-            box-shadow: 0 0 0 2px rgba(233, 70, 89, 0.2); }
+  input[type=text].--nd-text-input.--has-errors, input[type=text].--nd-text-input[aria-invalid="true"],
+  input[type=email].--nd-text-input.--has-errors,
+  input[type=email].--nd-text-input[aria-invalid="true"],
+  input[type=tel].--nd-text-input.--has-errors,
+  input[type=tel].--nd-text-input[aria-invalid="true"] {
+    border-color: #e94659; }
+    input[type=text].--nd-text-input.--has-errors:focus, input[type=text].--nd-text-input[aria-invalid="true"]:focus,
+    input[type=email].--nd-text-input.--has-errors:focus,
+    input[type=email].--nd-text-input[aria-invalid="true"]:focus,
+    input[type=tel].--nd-text-input.--has-errors:focus,
+    input[type=tel].--nd-text-input[aria-invalid="true"]:focus {
+      border-color: #e94659;
+      -webkit-box-shadow: 0 0 0 2px rgba(233, 70, 89, 0.2);
+              box-shadow: 0 0 0 2px rgba(233, 70, 89, 0.2); }
   input[type=text].--nd-text-input.--has-errors, input[type=text].--nd-text-input[aria-invalid="true"], input[type=text].--nd-text-input[aria-invalid="true"]:focus,
   input[type=email].--nd-text-input.--has-errors,
   input[type=email].--nd-text-input[aria-invalid="true"],
@@ -1038,7 +1045,6 @@ textarea {
     background-color: #fff;
     -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
             box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
-    border-color: #e94659;
     padding-top: 12px; }
     textarea.--nd-text-input:focus {
       border-color: #2278f1;
@@ -1064,10 +1070,12 @@ textarea {
       background-color: #fff;
       opacity: 0.5;
       cursor: not-allowed; }
-    textarea.--nd-text-input:focus {
-      border-color: #e94659;
-      -webkit-box-shadow: 0 0 0 2px rgba(233, 70, 89, 0.2);
-              box-shadow: 0 0 0 2px rgba(233, 70, 89, 0.2); }
+    textarea.--nd-text-input.--has-errors, textarea.--nd-text-input[aria-invalid="true"] {
+      border-color: #e94659; }
+      textarea.--nd-text-input.--has-errors:focus, textarea.--nd-text-input[aria-invalid="true"]:focus {
+        border-color: #e94659;
+        -webkit-box-shadow: 0 0 0 2px rgba(233, 70, 89, 0.2);
+                box-shadow: 0 0 0 2px rgba(233, 70, 89, 0.2); }
     textarea.--nd-text-input.--has-errors, textarea.--nd-text-input[aria-invalid="true"], textarea.--nd-text-input[aria-invalid="true"]:focus {
       background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOHB4IiBoZWlnaHQ9IjE4cHgiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjggMjgiPgogICAgPHVzZSB4bGluazpocmVmPSIjYTE5IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0IDQpIiAvPgogICAgPGRlZnM+CiAgICAgICAgPHBhdGggZmlsbD0iI2U5NDY1OSIgaWQ9ImExOSIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMTAgMjBjNS41MjI5IDAgMTAtNC40NzcyIDEwLTEwIDAtNS41MjI4My00LjQ3NzEtMTAtMTAtMTBDNC40NzcxNCAwIDAgNC40NzcxNyAwIDEwYzAgNS41MjI4IDQuNDc3MTQgMTAgMTAgMTB6TTkuNTcyNiA0Yy0uNTY1MjEgMC0xLjAxODEuNDY4MDItLjk5OTQ1IDEuMDMyOTZsLjE4NDAyIDUuNTc4MTRjLjAxNzc2LjUzOTIuNDU5OTkuOTY3Ljk5OTQ1Ljk2N2guNTY0ODhjLjUzOTUgMCAuOTgxNy0uNDI3OC45OTk1LS45NjdsLjE4NC01LjU3ODE0QzExLjUyMzYgNC40NjgwMiAxMS4wNzA3IDQgMTAuNTA1NSA0aC0uOTMyOXptLjQ2NjUgMTEuNTQ2OWMtMS4wMDc4NSAwLTEuNTkzNzktLjUyMzUtMS41OTM3OS0xLjQyMTkgMC0uOTA2Mi41ODU5NC0xLjQyOTcgMS41OTM3OS0xLjQyOTcgMS4wMDc4IDAgMS42MDE1LjUyMzUgMS42MDE1IDEuNDI5NyAwIC44OTg0LS41OTM3IDEuNDIxOS0xLjYwMTUgMS40MjE5eiIKICAgICAgICAvPgogICAgPC9kZWZzPgo8L3N2Zz4=) no-repeat;
       background-position: right 11px center;
@@ -1089,7 +1097,6 @@ select.--nd-select {
   background-color: #fff;
   -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
           box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
-  border-color: #e94659;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -1106,10 +1113,12 @@ select.--nd-select {
     background-color: #fff;
     opacity: 0.5;
     cursor: not-allowed; }
-  select.--nd-select:focus {
-    border-color: #e94659;
-    -webkit-box-shadow: 0 0 0 2px rgba(233, 70, 89, 0.2);
-            box-shadow: 0 0 0 2px rgba(233, 70, 89, 0.2); }
+  select.--nd-select.--has-errors, select.--nd-select[aria-invalid="true"] {
+    border-color: #e94659; }
+    select.--nd-select.--has-errors:focus, select.--nd-select[aria-invalid="true"]:focus {
+      border-color: #e94659;
+      -webkit-box-shadow: 0 0 0 2px rgba(233, 70, 89, 0.2);
+              box-shadow: 0 0 0 2px rgba(233, 70, 89, 0.2); }
 
 input[type=checkbox] {
   -webkit-appearance: none;
