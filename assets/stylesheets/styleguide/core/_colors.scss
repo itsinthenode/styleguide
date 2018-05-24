@@ -186,11 +186,11 @@ $colors-all: map-merge(
   }
   @if not map-has-key($color-palette, $color-name) {
     @if map-has-key($colors-old-compat, $color-name) {
-      @warn "you used an old color: '#{$color-name}'. Please use the new ones.";
+      @warn "you used an old color: '#{$color-name}'. Please use the new one: '#{$colors-old-compat}'";
       @return map-get($colors-old-compat, $color-name);
     }
     @if map-has-key($colors-new-compat, $color-name) {
-      @warn "you used a compat color: '#{$color-name}'. Please use the new ones.";
+      @warn "you used a compat color: '#{$color-name}'. Please use the new one: '#{$colors-new-compat}'";
       @return map-get($colors-new-compat, $color-name);
     }
   }
