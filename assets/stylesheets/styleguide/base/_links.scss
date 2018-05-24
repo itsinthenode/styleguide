@@ -82,13 +82,13 @@ $nd-link-defaults: (
 
 $nd-link-config:(
   'default': (
-      color: color('royal-blue')
+      color: color('blue', 'light1')
   ),
   'primary-lime':(
-      color: color('lime')
+      color: color('green')
   ),
   'primary-blue':(
-      color: color('royal-blue')
+      color: color('blue', 'light1')
   )
 );
 

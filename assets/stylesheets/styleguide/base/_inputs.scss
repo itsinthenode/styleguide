@@ -44,7 +44,7 @@ $nd-input-background-color: color('white');
 //
 // Style guide: Inputs.Defaults input mixin
 
-$nd-focus-border-color: color('royal-blue');
+$nd-focus-border-color: color('blue','light1');
 $nd-focus-box-shadow: 0 0 0 2px #CBE6FF;
 
 @mixin nd-input-focus(){
@@ -89,7 +89,7 @@ $nd-disabled-cursor: not-allowed;
   }
 }
 
-$error-color: color('alarm-red');
+$error-color: color('red');
 $error-box-shadow: 0 0 0 2px rgba($error-color,0.2);
 
 @mixin nd-input-has-errors(){
