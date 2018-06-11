@@ -11,17 +11,17 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
+          key: dependency-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run:
           name: install
-          command: npm install
+          command: yarn install
       - save_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
+          key: dependency-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}
           paths:
             - ./node_modules
       - run:
           name: test
-          command: npm test
+          command: yarn run test
       - persist_to_workspace:
           root: ~/styleguide
           paths:
@@ -39,7 +39,7 @@ jobs:
           command: |
             git config --global user.email "circleci@itsinthenode.com"
             git config --global user.name "CircleCI Bot"
-            npm run deploy
+            yarn run deploy
 
 workflows:
   version: 2
