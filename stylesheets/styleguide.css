@@ -397,7 +397,7 @@ h1, h2, h3, p, div {
   -webkit-touch-callout: none; }
 
 .--nd-icon-error {
-  color: #e94659; }
+  color: #E94659; }
 
 .--nd-select-arrow {
   color: rgba(7, 22, 39, 0.3); }
@@ -453,8 +453,8 @@ p {
     [role="tablist"] [role="tab"] + label:last-of-type {
       margin-right: 0; }
   [role="tablist"] [role="tab"]:checked + label {
-    border-bottom: 2px solid #2278f1;
-    color: #2278f1; }
+    border-bottom: 2px solid #2278F1;
+    color: #2278F1; }
   [role="tablist"] input[type="radio"] {
     position: absolute; }
   [role="tablist"] input[type="radio"] + label:before, [role="tablist"] input[type="radio"] + label:after {
