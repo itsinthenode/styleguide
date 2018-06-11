@@ -39,6 +39,11 @@ jobs:
       - attach_workspace:
           at: ~/styleguide
       - run:
+          name: fix deployment
+          command: |
+            cd node_modules/gulp-gh-pages/
+            npm install --save gift@0.10.2
+      - run:
           name: deploy
           command: |
             git config --global user.email "circleci@itsinthenode.com"
