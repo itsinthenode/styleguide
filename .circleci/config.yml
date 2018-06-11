@@ -39,7 +39,7 @@ jobs:
       - attach_workspace:
           at: ~/styleguide
       - run:
-          name: fix deployment
+          name: fix deployment (better use different deployment library)
           command: |
             cd node_modules/gulp-gh-pages/
             npm install --save gift@0.10.2
