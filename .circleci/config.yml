@@ -9,7 +9,7 @@ jobs:
       - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}
       - run:
-          name: install-deps
+          name: install
           command: npm install
       - save_cache:
           key: dependency-cache-{{ checksum "package.json" }}
@@ -24,7 +24,7 @@ jobs:
       enabled: true
     steps:
       - run:
-          name: deploy-styleguide
+          name: deploy
           command: |
             git config --global user.email "circleci@itsinthenode.com"
             git config --global user.name "CircleCI Bot"
@@ -38,7 +38,3 @@ workflows:
       - deploy:
           requires:
             - build
-          filters:
-            branches:
-              only: master
-
