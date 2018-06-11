@@ -16,8 +16,29 @@ jobs:
           paths:
             - ./node_modules
       - run:
+          name: test
+          command: npm test
+
+  deploy:
+    machine:
+      enabled: true
+    steps:
+      - run:
           name: deploy-styleguide
           command: |
             git config --global user.email "circleci@itsinthenode.com"
             git config --global user.name "CircleCI Bot"
             npm run deploy
+
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
+
