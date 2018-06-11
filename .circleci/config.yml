@@ -1,0 +1,23 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/styleguide
+    docker:
+      - image: circleci/node:6.14
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: install-deps
+          command: npm install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - run:
+          name: deploy-styleguide
+          command: |
+            git config --global user.email "circleci@itsinthenode.com"
+            git config --global user.name "CircleCI Bot"
+            npm run deploy
