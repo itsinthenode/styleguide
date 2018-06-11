@@ -1,7 +1,6 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/styleguide
     docker:
       - image: circleci/node:6.14
     steps:
