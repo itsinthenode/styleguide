@@ -3,7 +3,6 @@ defaults: &defaults
     - image: circleci/node:6.14
   working_directory: ~/styleguide
 
-
 version: 2
 jobs:
   build:
